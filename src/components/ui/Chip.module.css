@@ -1,0 +1,59 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1.5px solid var(--line);
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.chip:hover {
+  color: #fff;
+  border-color: var(--line-strong);
+}
+
+.active,
+.active:hover {
+  background: #fff;
+  border-color: #fff;
+  color: #0b0b0f;
+}
+
+.small {
+  height: 26px;
+  padding: 0 9px;
+  border-radius: 8px;
+  border-width: 1px;
+  font-size: 12px;
+}
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .group {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-left: calc(var(--gutter) * -1);
+    margin-right: calc(var(--gutter) * -1);
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    scroll-padding-left: var(--gutter);
+  }
+}

@@ -1,0 +1,70 @@
+.placeholder {
+  min-height: 240px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.count {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.clear {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 10px;
+  color: var(--text-dim);
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.clear:hover {
+  color: #ffb3bd;
+  background: rgba(255, 107, 125, 0.08);
+}
+
+.clear svg {
+  width: 15px;
+  height: 15px;
+}
+
+.empty {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 64px 16px;
+  border-radius: 22px;
+  background: var(--bg-card);
+  text-align: center;
+}
+
+.empty > svg {
+  width: 32px;
+  height: 32px;
+  color: var(--accent);
+}
+
+.empty h2 {
+  font-size: 20px;
+}
+
+.empty p {
+  max-width: 380px;
+  margin-bottom: 10px;
+  color: var(--text-muted);
+  font-size: 14px;
+}

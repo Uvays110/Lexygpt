@@ -1,0 +1,138 @@
+.button {
+  --b-bg: var(--accent);
+  --b-ink: var(--accent-ink);
+  --b-shade: var(--accent-shade);
+  --b-depth: 4px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 20px;
+  margin-bottom: var(--b-depth);
+  border-radius: 12px;
+  background: var(--b-bg);
+  color: var(--b-ink);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 var(--b-depth) 0 var(--b-shade);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    filter 0.2s ease;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.button svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.button:hover {
+  filter: brightness(1.07);
+}
+
+.button:active {
+  transform: translateY(var(--b-depth));
+  box-shadow: 0 0 0 var(--b-shade);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  filter: saturate(0.35) brightness(0.7);
+  transform: none;
+  box-shadow: 0 var(--b-depth) 0 var(--b-shade);
+}
+
+.white {
+  --b-bg: #fff;
+  --b-ink: #0b0b0f;
+  --b-shade: #b9bac2;
+}
+
+.gray {
+  --b-bg: #2a2c33;
+  --b-ink: #fff;
+  --b-shade: #17181c;
+}
+
+.premium {
+  --b-bg: var(--premium);
+  --b-ink: var(--premium-ink);
+  --b-shade: var(--premium-shade);
+}
+
+.pink {
+  --b-bg: var(--pink);
+  --b-ink: var(--pink-ink);
+  --b-shade: var(--pink-shade);
+}
+
+.outline,
+.soft {
+  --b-depth: 0px;
+  margin-bottom: 0;
+}
+
+.outline {
+  --b-bg: transparent;
+  --b-ink: #fff;
+  box-shadow: inset 0 0 0 1.5px var(--line-strong);
+}
+
+.outline:hover {
+  filter: none;
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.3);
+}
+
+.outline:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 0 0 1.5px var(--line-strong);
+}
+
+.soft {
+  --b-bg: rgba(var(--accent-rgb), 0.12);
+  --b-ink: var(--accent);
+  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), 0.28);
+  backdrop-filter: blur(10px);
+}
+
+.soft:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), 0.28);
+}
+
+.sm {
+  --b-depth: 3px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.sm.outline,
+.sm.soft {
+  --b-depth: 0px;
+}
+
+.lg {
+  height: 56px;
+  padding: 0 28px;
+  border-radius: 14px;
+  font-size: 15px;
+}
+
+.full {
+  width: 100%;
+}

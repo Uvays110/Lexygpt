@@ -1,0 +1,248 @@
+.job {
+  display: grid;
+  gap: 10px;
+  padding: 16px 0 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.prompt {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.actions {
+  display: flex;
+  gap: 2px;
+  flex: 0 0 auto;
+}
+
+.actions button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  color: var(--text-muted);
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.actions button:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.actions svg {
+  width: 16px;
+  height: 16px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.chip {
+  padding: 3px 8px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.demo {
+  background: rgba(255, 194, 77, 0.12);
+  color: var(--premium);
+}
+
+.outputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.output,
+.skeleton {
+  position: relative;
+  width: 232px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--bg-card-2);
+}
+
+.output[data-shape='square'],
+.skeleton[data-shape='square'] {
+  width: 270px;
+}
+
+.output[data-shape='landscape'],
+.skeleton[data-shape='landscape'] {
+  width: 420px;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.download {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(10, 10, 13, 0.6);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.download svg {
+  width: 17px;
+  height: 17px;
+}
+
+.output:hover .download,
+.download:focus-visible {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .download {
+    opacity: 1;
+  }
+}
+
+.skeleton {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  background:
+    linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.06) 50%, transparent 70%) 0 0 / 250% 100%,
+    var(--bg-card-2);
+  animation: shimmer 1.6s linear infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 125% 0, 0 0;
+  }
+  to {
+    background-position: -125% 0, 0 0;
+  }
+}
+
+.spin {
+  width: 22px;
+  height: 22px;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.failed {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 107, 125, 0.08);
+  color: #ffb3bd;
+  font-size: 14px;
+}
+
+.failed svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.audio {
+  display: grid;
+  gap: 12px;
+  width: min(460px, 100%);
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--bg-card-2);
+}
+
+.skeletonAudio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 44px;
+}
+
+.wave span {
+  flex: 1 1 0;
+  height: calc(var(--v) * 100%);
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  opacity: 0.85;
+}
+
+.player {
+  width: 100%;
+  height: 40px;
+}
+
+@media (max-width: 600px) {
+  .output,
+  .skeleton,
+  .output[data-shape='square'],
+  .skeleton[data-shape='square'] {
+    width: calc(50% - 4px);
+  }
+
+  .output[data-shape='landscape'],
+  .skeleton[data-shape='landscape'] {
+    width: 100%;
+  }
+
+  .outputs:has(> :only-child) .output[data-shape='portrait'],
+  .outputs:has(> :only-child) .skeleton[data-shape='portrait'] {
+    width: 62%;
+  }
+}

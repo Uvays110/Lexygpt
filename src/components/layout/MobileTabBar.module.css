@@ -1,0 +1,65 @@
+.bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 70;
+  display: none;
+  height: calc(var(--tabbar-h) + env(safe-area-inset-bottom, 0px));
+  padding: 0 6px env(safe-area-inset-bottom, 0px);
+  background: rgba(14, 14, 18, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+  }
+}
+
+.item {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.item svg {
+  width: 22px;
+  height: 22px;
+}
+
+.active {
+  color: #fff;
+}
+
+.create {
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 44px;
+  margin-bottom: 3px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 3px 0 var(--accent-shade);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.create:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 var(--accent-shade);
+}
+
+.create svg {
+  width: 22px;
+  height: 22px;
+}
