@@ -8,7 +8,12 @@ export const site = {
   description:
     'Фото, видео и озвучка с помощью ИИ в одном окне: лучшие модели, готовые тренды, фотосеты и эффекты без сложных промптов.',
   keywords: ['ИИ', 'нейросеть', 'генерация фото', 'генерация видео', 'ИИ-фотосессия', 'промпты', 'озвучка'],
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  /** Адрес сайта. На Vercel берётся автоматически из основного домена проекта. */
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : 'http://localhost:3000'),
   locale: 'ru_RU',
 
   /** Ссылки на поддержку и ботов — замените на свои. */
